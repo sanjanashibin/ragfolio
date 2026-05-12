@@ -2,16 +2,35 @@ import { motion } from 'framer-motion'
 
 export function Skills() {
     const categories = [
-        { name: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python', 'Go'] },
-        { name: 'Frontend', skills: ['React', 'Next.js', 'Tailwind CSS'] },
-        { name: 'Backend', skills: ['Node.js', 'FastAPI', 'PostgreSQL'] },
-        { name: 'Tools', skills: ['Git', 'Docker', 'AWS'] },
+        {
+            name: 'Languages',
+            skills: ['Python', 'C++ (basic)']
+        },
+        {
+            name: 'AI / Data',
+            skills: ['Generative AI (learning)', 'Data Analysis (learning)', 'RAG (project-based)']
+        },
+        {
+            name: 'Frontend',
+            skills: ['React (basic)', 'Tailwind CSS']
+        },
+        {
+            name: 'Backend',
+            skills: ['FastAPI (basic)']
+        },
+        {
+            name: 'Tools',
+            skills: ['Git', 'GitHub', 'VS Code']
+        }
     ]
 
     return (
         <section className="py-12 px-4 border-t border-zinc-800/50">
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl font-semibold text-white mb-6">Skills & Languages</h2>
+                <h2 className="text-2xl font-semibold text-white mb-6">
+                    Skills & Interests
+                </h2>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {categories.map((cat, idx) => (
                         <motion.div
@@ -24,6 +43,7 @@ export function Skills() {
                             <h3 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4 border-b border-zinc-900 pb-2">
                                 {cat.name}
                             </h3>
+
                             <div className="flex flex-wrap gap-2">
                                 {cat.skills.map((skill) => (
                                     <span
