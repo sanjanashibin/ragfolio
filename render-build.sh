@@ -8,4 +8,4 @@ npm install
 npm run build
 cd ..
 
-uv run rag/create-embeddings.py
+python rag/create-embeddings.py
