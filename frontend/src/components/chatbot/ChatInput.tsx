@@ -13,7 +13,9 @@ export function ChatInput({ onSend, disabled, isFirstTime }: ChatInputProps) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+
     const trimmed = value.trim()
+
     if (trimmed && !disabled) {
       onSend(trimmed)
       setValue('')
@@ -23,15 +25,16 @@ export function ChatInput({ onSend, disabled, isFirstTime }: ChatInputProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-4 bg-zinc-950/50 backdrop-blur-md border-t border-zinc-800/50 flex gap-3 relative group"
+      className="p-4 bg-[#F3ECE3] border-t border-[#BEB5A9] flex gap-3 relative"
     >
+
       <motion.div
         className="flex-1 relative"
         animate={isFirstTime ? {
           boxShadow: [
-            "0 0 0px 0px rgba(59, 130, 246, 0)",
-            "0 0 20px 2px rgba(59, 130, 246, 0.3)",
-            "0 0 0px 0px rgba(59, 130, 246, 0)"
+            "0 0 0px 0px rgba(167, 141, 120, 0)",
+            "0 0 18px 2px rgba(167, 141, 120, 0.25)",
+            "0 0 0px 0px rgba(167, 141, 120, 0)"
           ]
         } : {}}
         transition={isFirstTime ? {
@@ -41,24 +44,28 @@ export function ChatInput({ onSend, disabled, isFirstTime }: ChatInputProps) {
         } : {}}
         style={{ borderRadius: '12px' }}
       >
+
         <input
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Ask anything about the portfolio..."
           disabled={disabled}
-          className="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+          className="w-full bg-[#E1D4C2] border border-[#BEB5A9] rounded-xl px-4 py-3 text-sm text-[#291C0E] placeholder:text-[#A78D78] focus:outline-none focus:ring-2 focus:ring-[#A78D78]/40 transition-all"
         />
+
       </motion.div>
+
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={disabled || !value.trim()}
-        className="bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-800 disabled:text-zinc-500 text-white rounded-xl px-5 py-3 text-sm font-semibold transition-colors shadow-lg shadow-blue-500/10"
+        className="bg-[#A78D78] hover:bg-[#6E473B] disabled:bg-[#D8C8B8] disabled:text-[#A78D78] text-[#F3ECE3] rounded-xl px-5 py-3 text-sm font-semibold transition-colors"
       >
         Send
       </motion.button>
+
     </form>
   )
 }

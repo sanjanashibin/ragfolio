@@ -1,63 +1,100 @@
 import { motion } from 'framer-motion'
 
-export function Skills() {
-    const categories = [
-        {
-            name: 'Languages',
-            skills: ['Python', 'C++ (basic)']
-        },
-        {
-            name: 'AI / Data',
-            skills: ['Generative AI (learning)', 'Data Analysis (learning)', 'RAG (project-based)']
-        },
-        {
-            name: 'Frontend',
-            skills: ['React (basic)', 'Tailwind CSS']
-        },
-        {
-            name: 'Backend',
-            skills: ['FastAPI (basic)']
-        },
-        {
-            name: 'Tools',
-            skills: ['Git', 'GitHub', 'VS Code']
-        }
+const categories = [
+  {
+    name: 'Languages',
+    skills: ['Python', 'C++ (basic)']
+  },
+  {
+    name: 'AI / Data',
+    skills: [
+      'Generative AI (learning)',
+      'Data Analysis (learning)',
+      'RAG (project-based)'
     ]
+  },
+  {
+    name: 'Frontend',
+    skills: [
+      'React (basic)',
+      'Tailwind CSS (learning)'
+    ]
+  },
+  {
+    name: 'Backend',
+    skills: [
+      'FastAPI (basic)'
+    ]
+  },
+  {
+    name: 'Tools',
+    skills: [
+      'Git',
+      'GitHub',
+      'VS Code'
+    ]
+  }
+]
 
-    return (
-        <section className="py-12 px-4 border-t border-zinc-800/50">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl font-semibold text-white mb-6">
-                    Skills & Interests
-                </h2>
+export function Skills() {
+  return (
+    <section className="py-16 px-4 border-t border-[#BEB5A9]">
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {categories.map((cat, idx) => (
-                        <motion.div
-                            key={cat.name}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
-                        >
-                            <h3 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4 border-b border-zinc-900 pb-2">
-                                {cat.name}
-                            </h3>
+      <div className="max-w-4xl mx-auto">
 
-                            <div className="flex flex-wrap gap-2">
-                                {cat.skills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-3 py-1.5 rounded-lg bg-zinc-900/50 border border-zinc-800 text-zinc-300 text-xs hover:border-zinc-700 transition-colors"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+
+          <h2 className="text-3xl font-semibold text-[#291C0E] mb-10">
+            Skills & Interests
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+            {categories.map((category, index) => (
+
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="bg-[#F3ECE3] border border-[#D8C8B8] rounded-2xl p-6"
+              >
+
+                <h3 className="text-[#291C0E] font-semibold text-lg mb-4">
+                  {category.name}
+                </h3>
+
+                <div className="flex flex-wrap gap-3">
+
+                  {category.skills.map((skill) => (
+
+                    <span
+                      key={skill}
+                      className="px-4 py-2 rounded-full bg-[#E1D4C2] text-[#6E473B] text-sm border border-[#D8C8B8]"
+                    >
+                      {skill}
+                    </span>
+
+                  ))}
+
                 </div>
-            </div>
-        </section>
-    )
+
+              </motion.div>
+
+            ))}
+
+          </div>
+
+        </motion.div>
+
+      </div>
+
+    </section>
+  )
 }
